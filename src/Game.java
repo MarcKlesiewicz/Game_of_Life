@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Game {
 
-    private static int SIZE_X = 10, SIZE_Y = 10;
+    public static int SIZE_X = 10, SIZE_Y = 10;
 
     private Cell[][] myArray = new Cell[SIZE_X][SIZE_Y];
 
@@ -23,6 +23,19 @@ public class Game {
             }
 
         }
+    }
+
+    public static int getSizeX(){
+        return SIZE_X;
+    }
+    public static void setSizeX(int SIZE_X){
+        Game.SIZE_X = SIZE_X;
+    }
+    public static int getSizeY(){
+        return SIZE_Y;
+    }
+    public static  void setSizeY(int SIZE_Y){
+        Game.SIZE_Y = SIZE_Y;
     }
 
 }
