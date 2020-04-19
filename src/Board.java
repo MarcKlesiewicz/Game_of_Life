@@ -12,6 +12,7 @@ public class Board extends Application {
     private Cell[][] matrix;
     private Game world;
     private String image;
+    private GridPane pane;
 
     @Override
     public void start(Stage primaryStage){
@@ -19,10 +20,13 @@ public class Board extends Application {
         GridPane pane = new GridPane();
         pane.setAlignment(Pos.CENTER);
 
+        Game world = Game.intialize();
         matrix = world.getMyArray();
+        updateScene(matrix, pane);
+
 
         for (int y = 0; y < Game.getSizeY() ; y++) {
-            for (int x = 0; x < Game.getSizeY() ; x++) {
+            for (int x = 0; x < Game.getSizeX() ; x++) {
 
                 if (matrix[x][y].isAlive()){
                     image = "image/bTile.JPG";
@@ -40,4 +44,10 @@ public class Board extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+    private void evolve(Game world, GridPane pane) {
+        matrix = world.getMyArray();
+    }
+
+
 }
