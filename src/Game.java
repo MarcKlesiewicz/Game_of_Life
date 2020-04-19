@@ -25,6 +25,11 @@ public class Game {
         }
     }
 
+    public static Game intialize(){
+        Game world = new Game();
+        return world;
+    }
+
     public static int getSizeX(){
         return SIZE_X;
     }
@@ -36,6 +41,13 @@ public class Game {
     }
     public static  void setSizeY(int SIZE_Y){
         Game.SIZE_Y = SIZE_Y;
+    }
+
+    public Cell[][] getMyArray(){
+        return myArray;
+    }
+    public void setMyArray(Cell[][] myArray){
+        this.myArray = myArray;
     }
 
 }

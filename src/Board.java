@@ -9,17 +9,22 @@ import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 public class Board extends Application {
 
+    private Cell[][] matrix;
+    private Game world;
+    private String image;
+
     @Override
     public void start(Stage primaryStage){
 
         GridPane pane = new GridPane();
         pane.setAlignment(Pos.CENTER);
-        Cell myCell = new Cell();
-        String image;
+
+        matrix = world.getMyArray();
+
         for (int y = 0; y < Game.getSizeY() ; y++) {
             for (int x = 0; x < Game.getSizeY() ; x++) {
 
-                if (myCell.isAlive() == false){
+                if (matrix[x][y].isAlive()){
                     image = "image/bTile.JPG";
                 }else {
                     image = "image/wTile.JPG";
