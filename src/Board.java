@@ -25,6 +25,7 @@ public class Board extends Application {
         updateScene(matrix, pane);
 
 
+
         for (int y = 0; y < Game.getSizeY() ; y++) {
             for (int x = 0; x < Game.getSizeX() ; x++) {
 
@@ -39,15 +40,33 @@ public class Board extends Application {
 
         }
 
-        Scene scene = new Scene(pane, 600,600);
+        Scene scene = new Scene(pane, 900,900);
         primaryStage.setTitle("Game of Life");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
     }
 
-    private void evolve(Game world, GridPane pane) {
-        matrix = world.getMyArray();
+    private void updateScene(Cell[][] matrix, GridPane pane) {
+        pane.getChildren().removeAll();
+
+        for (int y = 0; y < Game.SIZE_Y; y++) {
+            for (int x = 0; x < Game.SIZE_X; x++) {
+
+                if (matrix[x][y].isAlive()){
+                    image = "image/bTile.JPG";
+                }else {
+                    image = "image/wTile.JPG";
+                }
+                pane.add(new ImageView(new Image(image)), y, x);
+
+            }
+
+        }
     }
+
+
 
 
 }

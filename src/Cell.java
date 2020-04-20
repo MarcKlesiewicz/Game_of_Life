@@ -15,7 +15,7 @@ public class Cell {
 
 
 
-    public void update(){
+    public String update(){
 
 
         //A dead cell with exactly three live neighbours becomes a live cell (birth)
@@ -32,6 +32,7 @@ public class Cell {
             alive = false;
         }
 
+        return null;
     }
 
 
@@ -42,6 +43,14 @@ public class Cell {
 
     public void setLivingNeighbours(int livingNeighbours){
         this.livingNeighbours = livingNeighbours;
+    }
+
+    public void setNeighborList(List neighborList){
+        this.neighborList = neighborList;
+    }
+
+    public List getNeighborList(){
+        return neighborList;
     }
 
     public boolean isAlive(){
